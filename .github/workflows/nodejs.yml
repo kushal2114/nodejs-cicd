@@ -28,4 +28,9 @@ jobs:
               run: npm test
             
             - name: Build docker image
-              run: docker build -t nodejs-cicd           
+              run: docker build -t nodejs-cicd
+            
+            - name: Push image
+              run: |
+                docker tag nodejs-cicd kusha1r/nodejs-cicd:latest
+                docker push kusha1r/nodejs-cicd:latest
